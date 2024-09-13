@@ -1,5 +1,9 @@
 [![License](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://gitlab.xfce.org/xfce/libxfce4ui/-/blob/master/COPYING)
 
+# Modified version of libxfce4ui 4.18.6 for macports
+
+* Based on release https://archive.xfce.org/src/xfce/libxfce4ui/4.18/libxfce4ui-4.18.6.tar.bz2
+
 # libxfce4ui
 
 
