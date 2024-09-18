@@ -24,7 +24,9 @@
 
 #include <gdk/gdkkeysyms.h>
 #include <gdk/gdk.h>
+#ifdef HAVE_X11
 #include <gdk/gdkx.h>
+#endif
 #include <gtk/gtk.h>
 
 #include <libxfce4util/libxfce4util.h>

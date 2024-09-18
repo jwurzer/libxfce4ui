@@ -57,7 +57,9 @@
 #endif
 
 #include <gdk/gdk.h>
+#ifdef HAVE_X11
 #include <gdk/gdkx.h>
+#endif
 #include <gtk/gtk.h>
 
 #include <libxfce4util/libxfce4util.h>
@@ -645,7 +647,11 @@ xfce_sm_client_set_client_id(XfceSMClient *sm_client,
     g_free(sm_client->client_id);
     sm_client->client_id = g_strdup(client_id);
 
+#ifdef HAVE_X11
     gdk_x11_set_sm_client_id(sm_client->client_id);
+#else
+    g_warning("TODO: xfce_sm_client_set_client_id(): gdk_x11_set_sm_client_id() is not available");
+#endif
 
     g_object_notify(G_OBJECT(sm_client), "client-id");
 }
@@ -1747,7 +1753,11 @@ xfce_sm_client_disconnect(XfceSMClient *sm_client)
 
     SmcCloseConnection(sm_client->session_connection, 0, NULL);
     sm_client->session_connection = NULL;
+#ifdef HAVE_X11
     gdk_x11_set_sm_client_id(NULL);
+#else
+    g_warning("TODO: xfce_sm_client_disconnect(): gdk_x11_set_sm_client_id() is not available");
+#endif
 
     xfce_sm_client_set_state(sm_client, XFCE_SM_CLIENT_STATE_DISCONNECTED);
 #endif

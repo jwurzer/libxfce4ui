@@ -29,7 +29,9 @@
 #include <X11/XKBlib.h>
 
 #include <gdk/gdk.h>
+#ifdef HAVE_X11
 #include <gdk/gdkx.h>
+#endif
 #include <gdk/gdkkeysyms.h>
 
 #include <gtk/gtk.h>
@@ -205,6 +207,7 @@ xfce_shortcuts_grabber_init (XfceShortcutsGrabber *grabber)
 static void
 xfce_shortcuts_grabber_constructed (GObject *object)
 {
+#ifdef HAVE_X11
   GdkDisplay *display;
   Display    *xdisplay;
   GdkKeymap  *keymap;
@@ -230,6 +233,9 @@ xfce_shortcuts_grabber_constructed (GObject *object)
 
   /* Add event filter */
   gdk_window_add_filter (NULL, xfce_shortcuts_grabber_event_filter, grabber);
+#else
+  g_warning("TODO: impl xfce_shortcuts_grabber_constructed()");
+#endif
 }
 
 
@@ -264,6 +270,7 @@ xfce_shortcuts_grabber_keys_changed (GdkKeymap            *keymap,
 static gboolean
 xfce_shortcuts_grabber_xgrab (XfceXGrab g, gboolean grab)
 {
+#ifdef HAVE_X11
   GdkDisplay *display = gdk_display_get_default ();
   Display *xdisplay = GDK_DISPLAY_XDISPLAY (display);
   Window root_window;
@@ -323,6 +330,10 @@ xfce_shortcuts_grabber_xgrab (XfceXGrab g, gboolean grab)
     }
 
   return success;
+#else
+  g_warning("TODO: impl xfce_shortcuts_grabber_xgrab()");
+  return FALSE;
+#endif
 }
 
 
@@ -442,6 +453,7 @@ map_virtual_modifiers (GdkKeymap       *keymap,
 static void
 xfce_shortcuts_grabber_regrab_all (XfceShortcutsGrabber *grabber)
 {
+#ifdef HAVE_X11
   GdkDisplay     *display;
   Display        *xdisplay;
   GdkKeymap      *keymap;
@@ -594,6 +606,9 @@ xfce_shortcuts_grabber_regrab_all (XfceShortcutsGrabber *grabber)
   }
 
   g_free (regrab);
+#else
+  g_warning("TODO: impl xfce_shortcuts_grabber_regrab_all()");
+#endif
 }
 
 
@@ -601,6 +616,7 @@ xfce_shortcuts_grabber_regrab_all (XfceShortcutsGrabber *grabber)
 static void
 xfce_shortcuts_grabber_grab (XfceShortcutsGrabber *grabber, XfceKey *key)
 {
+#ifdef HAVE_X11
   GdkDisplay      *display;
   Display         *xdisplay;
   GdkKeymap       *keymap;
@@ -691,6 +707,9 @@ xfce_shortcuts_grabber_grab (XfceShortcutsGrabber *grabber, XfceKey *key)
     g_free (keys);
   key->non_virtual_modifiers = non_virtual_modifiers;
   key->numlock_modifier = numlock_modifier;
+#else
+  g_warning("TODO: impl xfce_shortcuts_grabber_grab()");
+#endif
 }
 
 static void
@@ -815,6 +834,7 @@ xfce_shortcuts_grabber_event_filter (GdkXEvent *gdk_xevent,
                                      GdkEvent  *event,
                                      gpointer   data)
 {
+#ifdef HAVE_X11
   XfceShortcutsGrabber       *const grabber = data;
   struct EventKeyFindContext  context;
   GdkKeymap                  *keymap;
@@ -939,6 +959,10 @@ xfce_shortcuts_grabber_event_filter (GdkXEvent *gdk_xevent,
   gdk_x11_display_error_trap_pop_ignored (display);
 
   return GDK_FILTER_CONTINUE;
+#else
+  g_warning("TODO: impl xfce_shortcuts_grabber_event_filter()");
+  return GDK_FILTER_CONTINUE;
+#endif
 }
 
 
