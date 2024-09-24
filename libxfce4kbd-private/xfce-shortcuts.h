@@ -22,7 +22,7 @@
 #define __XFCE_SHORTCUTS_H__
 
 #include <X11/Xlib.h>
-#include <xfconf/xfconf.h>
+#include "xfconf_wrapper.h"
 
 G_BEGIN_DECLS
 
