@@ -16516,9 +16516,9 @@ fi
 
 
 
-  if test x"$no_x" = x"yes"; then
-    as_fn_error $? "X Window system libraries and header files are required" "$LINENO" 5
-  fi
+#  if test x"$no_x" = x"yes"; then
+#    as_fn_error $? "X Window system libraries and header files are required" "$LINENO" 5
+#  fi
 
 
 
@@ -17398,68 +17398,68 @@ fi
 
 
 
-  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for libxfconf-0 >= 4.12.0" >&5
-printf %s "checking for libxfconf-0 >= 4.12.0... " >&6; }
-  if $PKG_CONFIG "--atleast-version=4.12.0" "libxfconf-0" >/dev/null 2>&1; then
-    XFCONF_VERSION=`$PKG_CONFIG --modversion "libxfconf-0"`
-    { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $XFCONF_VERSION" >&5
-printf "%s\n" "$XFCONF_VERSION" >&6; }
+#  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for libxfconf-0 >= 4.12.0" >&5
+#printf %s "checking for libxfconf-0 >= 4.12.0... " >&6; }
+#  if $PKG_CONFIG "--atleast-version=4.12.0" "libxfconf-0" >/dev/null 2>&1; then
+#    XFCONF_VERSION=`$PKG_CONFIG --modversion "libxfconf-0"`
+#    { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $XFCONF_VERSION" >&5
+#printf "%s\n" "$XFCONF_VERSION" >&6; }
 
-    { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking XFCONF_CFLAGS" >&5
-printf %s "checking XFCONF_CFLAGS... " >&6; }
-    XFCONF_CFLAGS=`$PKG_CONFIG --cflags "libxfconf-0"`
-    { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $XFCONF_CFLAGS" >&5
-printf "%s\n" "$XFCONF_CFLAGS" >&6; }
+#    { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking XFCONF_CFLAGS" >&5
+#printf %s "checking XFCONF_CFLAGS... " >&6; }
+#    XFCONF_CFLAGS=`$PKG_CONFIG --cflags "libxfconf-0"`
+#    { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $XFCONF_CFLAGS" >&5
+#printf "%s\n" "$XFCONF_CFLAGS" >&6; }
 
-    { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking XFCONF_LIBS" >&5
-printf %s "checking XFCONF_LIBS... " >&6; }
-    XFCONF_LIBS=`$PKG_CONFIG --libs "libxfconf-0"`
-    { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $XFCONF_LIBS" >&5
-printf "%s\n" "$XFCONF_LIBS" >&6; }
-
-    XFCONF_REQUIRED_VERSION=4.12.0
-
-
+#    { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking XFCONF_LIBS" >&5
+#printf %s "checking XFCONF_LIBS... " >&6; }
+#    XFCONF_LIBS=`$PKG_CONFIG --libs "libxfconf-0"`
+#    { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $XFCONF_LIBS" >&5
+#printf "%s\n" "$XFCONF_LIBS" >&6; }
+#
+#    XFCONF_REQUIRED_VERSION=4.12.0
 
 
 
 
-    if test x"XFCONF" = x"GLIB"; then
-
-printf "%s\n" "#define G_LOG_USE_STRUCTURED 1" >>confdefs.h
-
-    fi
 
 
+#    if test x"XFCONF" = x"GLIB"; then
+#
+#printf "%s\n" "#define G_LOG_USE_STRUCTURED 1" >>confdefs.h
+#
+#    fi
 
 
-  elif $PKG_CONFIG --exists "libxfconf-0" >/dev/null 2>&1; then
-    xdt_cv_version=`$PKG_CONFIG --modversion "libxfconf-0"`
-    { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: found, but $xdt_cv_version" >&5
-printf "%s\n" "found, but $xdt_cv_version" >&6; }
 
 
-      echo "*** The required package libxfconf-0 was found on your system,"
-      echo "*** but the installed version ($xdt_cv_version) is too old."
-      echo "*** Please upgrade libxfconf-0 to atleast version 4.12.0, or adjust"
-      echo "*** the PKG_CONFIG_PATH environment variable if you installed"
-      echo "*** the new version of the package in a nonstandard prefix so"
-      echo "*** pkg-config is able to find it."
-      exit 1
-
-  else
-    { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: not found" >&5
-printf "%s\n" "not found" >&6; }
-
-
-      echo "*** The required package libxfconf-0 was not found on your system."
-      echo "*** Please install libxfconf-0 (atleast version 4.12.0) or adjust"
-      echo "*** the PKG_CONFIG_PATH environment variable if you"
-      echo "*** installed the package in a nonstandard prefix so that"
-      echo "*** pkg-config is able to find it."
-      exit 1
-
-  fi
+#  elif $PKG_CONFIG --exists "libxfconf-0" >/dev/null 2>&1; then
+#    xdt_cv_version=`$PKG_CONFIG --modversion "libxfconf-0"`
+#    { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: found, but $xdt_cv_version" >&5
+#printf "%s\n" "found, but $xdt_cv_version" >&6; }
+#
+#
+#      echo "*** The required package libxfconf-0 was found on your system,"
+#      echo "*** but the installed version ($xdt_cv_version) is too old."
+#      echo "*** Please upgrade libxfconf-0 to atleast version 4.12.0, or adjust"
+#      echo "*** the PKG_CONFIG_PATH environment variable if you installed"
+#      echo "*** the new version of the package in a nonstandard prefix so"
+#      echo "*** pkg-config is able to find it."
+#      exit 1
+#
+#  else
+#    { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: not found" >&5
+#printf "%s\n" "not found" >&6; }
+#
+#
+#      echo "*** The required package libxfconf-0 was not found on your system."
+#      echo "*** Please install libxfconf-0 (atleast version 4.12.0) or adjust"
+#      echo "*** the PKG_CONFIG_PATH environment variable if you"
+#      echo "*** installed the package in a nonstandard prefix so that"
+#      echo "*** pkg-config is able to find it."
+#      exit 1
+#
+#  fi
 
 
 

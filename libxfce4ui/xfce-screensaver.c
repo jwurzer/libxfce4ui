@@ -32,7 +32,7 @@
 #endif
 
 #include <libxfce4util/libxfce4util.h>
-#include <xfconf/xfconf.h>
+#include "xfconf_wrapper.h"
 
 #include "xfce-screensaver.h"
 
